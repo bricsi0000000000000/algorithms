@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_28_29',['operator()',['../class_ricsi_1_1_linked_list.html#a0ce7d8c48b18ab834d266b06ad60625c',1,'Ricsi::LinkedList']]],
-  ['operator_5b_5d',['operator[]',['../class_ricsi_1_1_linked_list.html#a0abfeafa483825217df66dbc15bd8a83',1,'Ricsi::LinkedList']]]
+  ['next',['next',['../struct_ricsi_1_1_node.html#a1cb14e8a748a36d19171e8eb4dd22347',1,'Ricsi::Node']]],
+  ['node',['Node',['../struct_ricsi_1_1_node.html',1,'Ricsi']]],
+  ['node_3c_20u_20_3e',['Node&lt; U &gt;',['../struct_ricsi_1_1_node.html',1,'Ricsi']]]
 ];

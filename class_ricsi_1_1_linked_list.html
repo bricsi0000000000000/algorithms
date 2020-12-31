@@ -75,7 +75,7 @@ $(function() {
 <p>Represents a doubly linked list.  
  <a href="class_ricsi_1_1_linked_list.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="linked_list_8hpp_source.html">linkedList.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="linked__list_8hpp_source.html">linked_list.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -127,6 +127,22 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af02eaa3695918e657f639996eae613c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ebae9c7bd37f8df7c06739398d32563"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#a7ebae9c7bd37f8df7c06739398d32563">display_backwards</a> ()</td></tr>
 <tr class="separator:a7ebae9c7bd37f8df7c06739398d32563"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf4cf35ab8d2a8475ad73d6d4c0bb567"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#abf4cf35ab8d2a8475ad73d6d4c0bb567">swap</a> (T item1, T item2)</td></tr>
+<tr class="separator:abf4cf35ab8d2a8475ad73d6d4c0bb567"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a261977565e78dd74f288d47ba5865242"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#a261977565e78dd74f288d47ba5865242">clear</a> ()</td></tr>
+<tr class="separator:a261977565e78dd74f288d47ba5865242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a661a0f30e7dde810043f83697a296aa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#a661a0f30e7dde810043f83697a296aa8">fill</a> (int from, int to)</td></tr>
+<tr class="separator:a661a0f30e7dde810043f83697a296aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf28c9cce014777bb605f8a933b4ea92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#aaf28c9cce014777bb605f8a933b4ea92">fill_reverse</a> (int from, int to)</td></tr>
+<tr class="separator:aaf28c9cce014777bb605f8a933b4ea92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62e1df11b440a8d00c151d29affb3de6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#a62e1df11b440a8d00c151d29affb3de6">fill_random</a> (int from, int to, int size)</td></tr>
+<tr class="separator:a62e1df11b440a8d00c151d29affb3de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51967fe8affc3d794711c5eb9587e5a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#aa51967fe8affc3d794711c5eb9587e5a">sort_insertion</a> ()</td></tr>
+<tr class="memdesc:aa51967fe8affc3d794711c5eb9587e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time complexity: O(n*2)  <a href="#aa51967fe8affc3d794711c5eb9587e5a">More...</a><br /></td></tr>
+<tr class="separator:aa51967fe8affc3d794711c5eb9587e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4527fa1872c6f1820be4d83b3aeaf82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_ricsi_1_1_linked_list.html#af4527fa1872c6f1820be4d83b3aeaf82">sort_merge</a> ()</td></tr>
+<tr class="memdesc:af4527fa1872c6f1820be4d83b3aeaf82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time complexity:  <a href="#af4527fa1872c6f1820be4d83b3aeaf82">More...</a><br /></td></tr>
+<tr class="separator:af4527fa1872c6f1820be4d83b3aeaf82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fd8b7cd53af175d12d91bbc63ed769f"><td class="memItemLeft" align="right" valign="top"><a id="a7fd8b7cd53af175d12d91bbc63ed769f"></a>
 <a class="el" href="struct_ricsi_1_1_iterator.html">Iterator</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
 <tr class="separator:a7fd8b7cd53af175d12d91bbc63ed769f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -187,6 +203,26 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a261977565e78dd74f288d47ba5865242"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a261977565e78dd74f288d47ba5865242">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Clears the list. </p>
+
+</div>
+</div>
 <a id="a961fc1b693f0bb69aba79db034d2ea71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a961fc1b693f0bb69aba79db034d2ea71">&#9670;&nbsp;</a></span>contains()</h2>
 
@@ -245,6 +281,124 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Go through the list backwards and displays all items. </p>
+
+</div>
+</div>
+<a id="a661a0f30e7dde810043f83697a296aa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a661a0f30e7dde810043f83697a296aa8">&#9670;&nbsp;</a></span>fill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::fill </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fill up the list with integers from <b>from</b> until <b>to</b>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>A number from fill up the list. </td></tr>
+    <tr><td class="paramname">to</td><td>A number until fill up the list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62e1df11b440a8d00c151d29affb3de6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e1df11b440a8d00c151d29affb3de6">&#9670;&nbsp;</a></span>fill_random()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::fill_random </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fill up the list with random integers from <b>from</b> until <b>to</b>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The random numbers minimum value. </td></tr>
+    <tr><td class="paramname">to</td><td>The random numbers maximum value. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of random numbers to add to the list. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaf28c9cce014777bb605f8a933b4ea92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf28c9cce014777bb605f8a933b4ea92">&#9670;&nbsp;</a></span>fill_reverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::fill_reverse </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fill up the list with integers from <b>from</b> until <b>to</b> in reversed order. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>A number from fill up the list. </td></tr>
+    <tr><td class="paramname">to</td><td>A number until fill up the list. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -783,9 +937,90 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aa51967fe8affc3d794711c5eb9587e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa51967fe8affc3d794711c5eb9587e5a">&#9670;&nbsp;</a></span>sort_insertion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::sort_insertion </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Time complexity: O(n*2) </p>
+<p>Sorts the list using insertion sort. </p>
+
+</div>
+</div>
+<a id="af4527fa1872c6f1820be4d83b3aeaf82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4527fa1872c6f1820be4d83b3aeaf82">&#9670;&nbsp;</a></span>sort_merge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::sort_merge </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Time complexity: </p>
+<p>Sorts the list using merge sort. </p>
+
+</div>
+</div>
+<a id="abf4cf35ab8d2a8475ad73d6d4c0bb567"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf4cf35ab8d2a8475ad73d6d4c0bb567">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LinkedList::swap </td>
+          <td>(</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>item1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>item2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Swap tow items. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item1</td><td>item to swap. </td></tr>
+    <tr><td class="paramname">item2</td><td>item to swap. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>linked_list/<a class="el" href="linked_list_8hpp_source.html">linkedList.hpp</a></li>
-<li>linked_list/linkedList.cpp</li>
+<li>linked_list/<a class="el" href="linked__list_8hpp_source.html">linked_list.hpp</a></li>
+<li>linked_list/linked_list.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
