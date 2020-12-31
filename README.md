@@ -1,2 +1,3 @@
-# algorithms
-This repository contains a bunch of algorithm
+# Algorithms
+
+This repository contains a bunch of algorithms
