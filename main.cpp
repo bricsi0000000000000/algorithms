@@ -1,8 +1,9 @@
 #include <iostream>
 
-#include "insertion_sort/insertionSort.cpp"
 #include "linked_list/linkedList.cpp"
 #include "linked_list/iterator/iterator.cpp"
+
+using namespace Ricsi;
 
 int main(){
   LinkedList<int> list1;
@@ -15,17 +16,14 @@ int main(){
   list1.push_back(70);
   list1.push_back(80);
   list1.push_back(90);
+ // list1.Display();
 
-  list1.Display();
 
+  //std::cout << '\n';
+
+  list1.display();
   std::cout << '\n';
-
-  list1.pop_range_item(30, 50);
-
-  std::cout << '\n';
-  std::cout << '\n';
-
-  list1.Display();
+  list1.display_backwards();
 
   /*std::cout << '\n';
 

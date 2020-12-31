@@ -3,23 +3,25 @@
 
 #include "iterator.hpp"
 
-template <typename U> Iterator<U>::Iterator(LinkedListItem<U>* ptr) : m_ptr(ptr) {}
+using namespace Ricsi;
+
+template <typename U> Iterator<U>::Iterator(Node<U>* ptr) : item(ptr) {}
 
 template <typename U> U& Iterator<U>::operator*() const { 
-	return m_ptr->item; 
+	return item->item; 
 }
 
 template <typename U>	U* Iterator<U>::operator->() { 
-	return m_ptr;
+	return item;
 }
 
 template <typename U>	Iterator<U>& Iterator<U>::operator++() {
-	m_ptr = m_ptr->next;
+	item = item->next;
 	return *this;
 }  
 
 template <typename U>	Iterator<U>& Iterator<U>::operator--() {
-	m_ptr = m_ptr->prev;
+	item = item->prev;
 	return *this;
 }  
 

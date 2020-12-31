@@ -1,32 +1,38 @@
 #ifndef ITERATOR_HPP
 #define ITERATOR_HPP
 
-#include <iterator> // For std::forward_iterator_tag
-#include <cstddef>  // For std::ptrdiff_t
+#include "../node.hpp"
 
-#include "../linkedListItem.hpp"
+namespace Ricsi{
+	/**
+	 * @struct Iterator
+	 * @brief Iterator for LinkedList
+	*/
+	template <typename U>
+	struct Iterator{
+		/**
+		 * Constructor for Iterator.
+		*/
+		Iterator(Node<U>* ptr);
 
-template <typename U>
-struct Iterator{
-	Iterator(LinkedListItem<U>* ptr);
+		U& operator*() const;
 
-	U& operator*() const;
+		U* operator->();
 
-	U* operator->();
+		// Prefix increments
+		Iterator& operator++();
+		Iterator& operator--();
 
-	// Prefix increment
-	Iterator& operator++();
-	Iterator& operator--();
+		// Postfix increments
+		Iterator operator++(U);
+		Iterator operator--(U);
 
-	// Postfix increment
-	Iterator operator++(U);
-	Iterator operator--(U);
+		friend bool operator== (const Iterator<U>& a, const Iterator<U>& b) {return a.item == b.item; }
+		friend bool operator!= (const Iterator<U>& a, const Iterator<U>& b) {return a.item != b.item; }
 
-	friend bool operator== (const Iterator<U>& a, const Iterator<U>& b) {return a.m_ptr == b.m_ptr; }
-	friend bool operator!= (const Iterator<U>& a, const Iterator<U>& b) {return a.m_ptr != b.m_ptr; }
-
-private:
-	LinkedListItem<U>* m_ptr;
-};
+	private:
+		Node<U>* item;
+	};
+}
 
 #endif //ITERATOR_HPP

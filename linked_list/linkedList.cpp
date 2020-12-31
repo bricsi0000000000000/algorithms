@@ -2,13 +2,15 @@
 
 #include "linkedList.hpp"
 
+using namespace Ricsi;
+
 template <class T> LinkedList<T>::LinkedList():
   head(nullptr), tail(nullptr){}
 
 template <class T> LinkedList<T>::~LinkedList(){
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
-    LinkedListItem<T>* nextItem = current->next;
+    Node<T>* nextItem = current->next;
     delete current;
     current = nextItem;
   }
@@ -16,7 +18,7 @@ template <class T> LinkedList<T>::~LinkedList(){
 
 template <class T> int LinkedList<T>::length(){
   int length = 0;
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
     ++length;
     current = current->next;
@@ -25,11 +27,11 @@ template <class T> int LinkedList<T>::length(){
   return length;
 }
 
-template <class T> LinkedListItem<T>* LinkedList<T>::get(int index){
-  LinkedListItem<T>* searchedItem;
+template <class T> Node<T>* LinkedList<T>::get(int index){
+  Node<T>* searchedItem;
 
   int i = 1;
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
       if(index == i){
           searchedItem = current;
@@ -44,7 +46,7 @@ template <class T> LinkedListItem<T>* LinkedList<T>::get(int index){
 
 template <class T> int LinkedList<T>::index(T item){
   int index = 0;
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
     if(item == current->item){
       return index;
@@ -59,7 +61,7 @@ template <class T> int LinkedList<T>::index(T item){
 
 template <class T> int LinkedList<T>::operator ()(T item){
   int index = 0;
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
     if(item == current->item){
       return index;
@@ -72,17 +74,17 @@ template <class T> int LinkedList<T>::operator ()(T item){
   return -1;
 }
 
-template <class T> T LinkedList<T>::operator [](int findIndex){
-  LinkedListItem<T>* searchItem;
+template <class T> T LinkedList<T>::operator [](int index){
+  Node<T>* searchItem;
 
-  int index = 0;
-  LinkedListItem<T>* current = head;
+  int i = 0;
+  Node<T>* current = head;
   while (current != nullptr) {
-    if(findIndex == index){
+    if(index == i){
       searchItem = current;
     }
 
-    ++index;
+    ++i;
     current = current->next;
   }
 
@@ -90,7 +92,7 @@ template <class T> T LinkedList<T>::operator [](int findIndex){
 }
 
 template <class T> bool LinkedList<T>::contains(T item){
-  LinkedListItem<T>* current = head;
+  Node<T>* current = head;
   while (current != nullptr) {
     if(item == current->item){
       return item == current->item;
@@ -103,7 +105,7 @@ template <class T> bool LinkedList<T>::contains(T item){
 }
 
 template <class T> void LinkedList<T>::push_front(T item){
-  LinkedListItem<T>* newItem = new LinkedListItem<T>{item, nullptr, nullptr};
+  Node<T>* newItem = new Node<T>{item, nullptr, nullptr};
 
   if(head == nullptr){
     head = newItem;
@@ -118,7 +120,7 @@ template <class T> void LinkedList<T>::push_front(T item){
 }
 
 template <class T> void LinkedList<T>::push_back(T item){
-  LinkedListItem<T>* newItem = new LinkedListItem<T>{item, nullptr, nullptr};
+  Node<T>* newItem = new Node<T>{item, nullptr, nullptr};
 
   if(head == nullptr){
     head = newItem;
@@ -151,11 +153,11 @@ template <class T> void LinkedList<T>::insert(T item, int index){
   }
   else{
     int i = 0;
-    LinkedListItem<T>* current = head;
+    Node<T>* current = head;
     while (current != nullptr && (index != i)) {
       if(index == i + 1){
-        LinkedListItem<T>* newItem = new LinkedListItem<T>{item, nullptr, nullptr};
-        LinkedListItem<T>* currentNext = current->next;
+        Node<T>* newItem = new Node<T>{item, nullptr, nullptr};
+        Node<T>* currentNext = current->next;
         newItem->next = currentNext;
         current->next= newItem;
 
@@ -170,7 +172,7 @@ template <class T> void LinkedList<T>::insert(T item, int index){
 
 template <class T> void LinkedList<T>::insert(T item, T which, Position position){
   if(contains(which)){
-    LinkedListItem<T>* current = head;
+    Node<T>* current = head;
 
     int index = 0;
     while (current != nullptr) {
@@ -215,7 +217,7 @@ template <class T> void LinkedList<T>::insert(LinkedList &list, int index){
 
 template <class T> void LinkedList<T>::insert(LinkedList &list, T which, Position position){
   if(contains(which)){
-    LinkedListItem<T>* current = head;
+    Node<T>* current = head;
 
     int index = 0;
     while (current != nullptr) {
@@ -255,7 +257,7 @@ template <class T> void LinkedList<T>::pop_front(){
     throw std::runtime_error("The list is empty");
   }
   else{
-    LinkedListItem<T>* headNext = head->next;
+    Node<T>* headNext = head->next;
     delete head;
     head = headNext;
     headNext->prev = nullptr;
@@ -270,7 +272,7 @@ template <class T> void LinkedList<T>::pop_back(){
     pop_front();
   }
   else if(length() > 1){
-    LinkedListItem<T>* current = head;
+    Node<T>* current = head;
     while (current->next->next != nullptr) {
       current = current->next;
     }
@@ -299,10 +301,10 @@ template <class T> void LinkedList<T>::pop(int index){
   }
   else {
     int i = 0;
-    LinkedListItem<T>* current = head;
+    Node<T>* current = head;
     while (current != nullptr) {
       if(index == i + 1){
-        LinkedListItem<T>* currentNextNext = current->next->next;
+        Node<T>* currentNextNext = current->next->next;
         delete current->next;
         current->next = currentNextNext;
         currentNextNext->prev = current;
@@ -315,102 +317,119 @@ template <class T> void LinkedList<T>::pop(int index){
 
 template <class T> void LinkedList<T>::pop_item(T item){
   if(contains(item)){
-    if(item == head->item){
-      pop_front();
-    }
-    else if(item == tail->item){
-      pop_back();
-    }
-    else{
-      pop(index(item));
+    while(contains(item)){
+      if(item == head->item){
+        pop_front();
+      }
+      else if(item == tail->item){
+        pop_back();
+      }
+      else{
+        pop(index(item));
+      }
     }
   }
   else{
-    throw std::runtime_error("The item is not in the list!");
+    std::stringstream errorMessage;
+    errorMessage << "The item(" << item << ") is not in the list";
+    throw std::runtime_error(errorMessage.str());
   }
 }
 
-template <class T> void LinkedList<T>::pop_range_item(T fromItem, T toItem){
-  if(contains(fromItem) && contains(toItem)){
-    if(index(fromItem) < index(toItem)){
-      LinkedListItem<T>* current = head;
-      LinkedListItem<T>* startItem;
-      LinkedListItem<T>* endItem;
+template <class T> void LinkedList<T>::pop_range_item(T from_item, T until_item){
+  if(!contains(from_item)){
+    std::stringstream errorMessage;
+    errorMessage << "The from item(" << from_item << ") is not found";
+    throw std::runtime_error(errorMessage.str());
+  }
+  else if(!contains(until_item)){
+    std::stringstream errorMessage;
+    errorMessage << "The until item(" << until_item << ") is not found";
+    throw std::runtime_error(errorMessage.str());
+  }
+  else if(!contains(from_item) && !contains(until_item)){
+    std::stringstream errorMessage;
+    errorMessage << "The from item(" << from_item << ") and the until item(" << until_item << ") are not found";
+    throw std::runtime_error(errorMessage.str());
+  }
+  else{
+    int start_index = index(from_item);
+    int end_index = index(until_item);
 
-      current = head;
-      while (current != nullptr) {
-        if(current->item == fromItem){
-          startItem = current;
-        }
-        if(current->item == toItem){
-          endItem = current;
-        }
-        current = current->next;
+    if(start_index == end_index){
+      std::stringstream errorMessage;
+      errorMessage << "The from item(" << from_item << ") is equals to the until item(" << until_item << ")";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else if(start_index > end_index){
+      std::stringstream errorMessage;
+      errorMessage << "The from item(" << from_item << ") is backwards from the until item(" << until_item << ")";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else{
+      pop_range(start_index, end_index);
+    }
+  }
+}
+
+template <class T> void LinkedList<T>::pop_range(int start_index, int end_index){
+  if(start_index == end_index){
+    std::stringstream errorMessage;
+    errorMessage << "The start index(" << start_index << ") is equals to end index(" << end_index << ")";
+    throw std::runtime_error(errorMessage.str());
+  }
+  else if(start_index > end_index){
+    std::stringstream errorMessage;
+    errorMessage << "The start index(" << start_index << ") is bigger than end index(" << end_index << ")";
+    throw std::runtime_error(errorMessage.str());
+  }
+  else{
+    if(start_index < 0){
+      std::stringstream errorMessage;
+      errorMessage << "The start index(" << start_index << ") is smaller than zero";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else if(end_index > length()){
+      std::stringstream errorMessage;
+      errorMessage << "The end index(" << end_index << ") is bigger than list length(" << length() << ")";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else{
+      bool end_index_is_length = end_index == length();
+      if(end_index_is_length){
+        end_index--;
       }
 
-      startItem->next = endItem;
-      endItem->prev = startItem;
+      for (size_t i = start_index; i < end_index; i++){
+        pop(start_index);
+      }
+
+      if(end_index_is_length){
+        pop_back();
+      }
     }
-    else if(fromItem == toItem){
-      std::cout << "The 'start' and 'end' elements are the same!\n";
+  }
+}
+
+template <class T> void LinkedList<T>::invert(){
+  Node<T>* current = head->next;
+  while (current != nullptr) {
+    Node<T> add = *current;
+    current = current->next;
+    if(current != nullptr){
+      pop_item(add.item);
     }
     else{
-      std::cout << "The 'start' item is after the 'end' item!\n";
+      pop_back();
     }
-  }
-  else if(!contains(fromItem) && !contains(toItem)){
-    std::cout << "None of the two elements are in the list!\n";
-  }
-  else if(!contains(fromItem)){
-    std::cout << "The 'start' item is not in the list!\n";
-  }
-  else if(!contains(toItem)){
-    std::cout << "The 'end' item is not in the list!\n";
+
+    push_front(add.item);
   }
 }
 
-template <class T>
-void LinkedList<T>::pop_range(int startIndex, int endIndex){
-  if(startIndex <= 0){
-    std::cout << "The start index(" << startIndex << ") is less than or equal to zero!\n";
-  }
-  else if(endIndex > length()){
-    std::cout << "The end index(" << endIndex << ") is bigger than the length(" << length() << ") of the list!\n";
-  }
-  else if(startIndex > endIndex){
-    std::cout << "The start index(" << startIndex << ") is bigger than the end index(" << endIndex << ")\n";
-  }
-  else if(startIndex == endIndex){
-    std::cout << "The start index(" << startIndex << ") is equal to the end index(" << endIndex << ")\n";
-  }
-  else{
-    LinkedListItem<T>* startItem = get(startIndex);
-    LinkedListItem<T>* endItem = get(endIndex);
-
-    startItem->next = endItem;
-    endItem->prev = startItem;
-  }
-}
-
-template <class T>
-void LinkedList<T>::Invert(){
-  LinkedListItem<T>* current = head;
-  while (current != nullptr) {
-    if(current != head){
-      pop(current->item);
-      push_front(current->item);
-    }
-    current = current->next;
-  }
-}
-
-template <class T>
-void LinkedList<T>::Display(){
-  if(length() == 0){
-    std::cout << "The list is empty\n";
-  }
-  else{
-    LinkedListItem<T>* current = head;
+template <class T> void LinkedList<T>::display(){
+  if(length() > 0){
+    Node<T>* current = head;
     while (current != nullptr) {
       std::cout << current->item << "\n";
       current = current->next;
@@ -418,13 +437,9 @@ void LinkedList<T>::Display(){
   }
 }
 
-template <class T>
-void LinkedList<T>::DisplayBackwards(){
-  if(length() == 0){
-    std::cout << "The list is empty\n";
-  }
-  else{
-    LinkedListItem<T>* current = tail;
+template <class T> void LinkedList<T>::display_backwards(){
+  if(length() > 0){
+    Node<T>* current = tail;
     while (current != nullptr) {
       std::cout << current->item << "\n";
       current = current->prev;
