@@ -2,6 +2,7 @@
 #define LINKED_LIST_HPP
 
 #include <iostream>
+#include <time.h>
 
 #include "node.hpp"
 #include "position.hpp"
@@ -169,6 +170,52 @@ namespace Ricsi{
      * Go through the list backwards and displays all items.
     */
     void display_backwards();
+
+    /**
+     * Swap tow items.
+     * @param item1 item to swap.
+     * @param item2 item to swap.
+    */
+    void swap(T item1, T item2);
+
+    /**
+     * Clears the list.
+    */
+    void clear();
+
+    /**
+     * Fill up the list with integers from **from** until **to**.
+     * @param from A number from fill up the list.
+     * @param to A number until fill up the list.
+    */
+    void fill(int from, int to);
+
+    /**
+     * Fill up the list with integers from **from** until **to** in reversed order.
+     * @param from A number from fill up the list.
+     * @param to A number until fill up the list.
+    */
+    void fill_reverse(int from, int to);
+
+    /**
+     * Fill up the list with random integers from **from** until **to**.
+     * @param from The random numbers minimum value.
+     * @param to The random numbers maximum value.
+     * @param size Number of random numbers to add to the list.
+    */
+    void fill_random(int from, int to, int size);
+
+    /**
+     * Sorts the list using insertion sort.
+     * @brief Time complexity: O(n*2)
+    */
+    void sort_insertion();
+
+    /**
+     * Sorts the list using merge sort.
+     * @brief Time complexity: 
+    */
+    void sort_merge();
 
     Iterator<T> begin();
     Iterator<T> end();
