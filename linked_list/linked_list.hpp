@@ -30,6 +30,28 @@ namespace Ricsi{
      * @return An item at index.
     */
     Node<T>* get(int index);
+
+    /**
+     * Start of merge sort.
+     * `sort_merge` calls it with `head`.
+     * @param head_ref `head` node.
+    */
+    void merge_sort(Node<T>** head_ref);
+
+    /**
+     * Split the nodes of the given list into front and back halves,  
+     * and return the two lists using the reference parameters.  
+     * If the length is odd, the extra node should go in the front list.  
+     * Uses the fast/slow pointer strategy.
+    */
+    void front_back_split(Node<T>* source, Node<T>** front, Node<T>** back);
+
+    /**
+     * Merges front and back
+    */
+    Node<T>* sorted_merge(Node<T>* front, Node<T>* back);
+
+
   public:
     /**
      * Constructor for LinkedList
@@ -172,11 +194,11 @@ namespace Ricsi{
     void display_backwards();
 
     /**
-     * Swap tow items.
-     * @param item1 item to swap.
-     * @param item2 item to swap.
+     * Swap two items.
+     * @param index1 items index to swap.
+     * @param index2 items index to swap.
     */
-    void swap(T item1, T item2);
+    void swap(int index1, int index2);
 
     /**
      * Clears the list.
@@ -207,15 +229,21 @@ namespace Ricsi{
 
     /**
      * Sorts the list using insertion sort.
-     * @brief Time complexity: O(n*2)
+     * @brief Time complexity: `O(n*2)`
     */
     void sort_insertion();
 
     /**
      * Sorts the list using merge sort.
-     * @brief Time complexity: 
+     * @brief Time complexity: `O(n)`
     */
     void sort_merge();
+
+    /**
+     * Sorts the list using selection sort.
+     * @brief Time complexity: `O(n^2)`
+    */
+    void sort_selection();
 
     Iterator<T> begin();
     Iterator<T> end();

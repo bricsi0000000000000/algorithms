@@ -5,7 +5,10 @@
 using namespace Ricsi;
 
 template <class T> LinkedList<T>::LinkedList():
-  head(nullptr), tail(nullptr) {}
+  head(nullptr), tail(nullptr) 
+  {
+    srand(time(NULL)); 
+  }
 
 template <class T> LinkedList<T>::~LinkedList() {
   Node<T>* current = head;
@@ -20,17 +23,17 @@ template <class T> int LinkedList<T>::length() {
   int length = 0;
   Node<T>* current = head;
   while (current != nullptr) {
-    ++length;
+    length++;
     current = current->next;
   }
 
-  return length;
+  return --length;
 }
 
 template <class T> Node<T>* LinkedList<T>::get(int index) {
   Node<T>* searchedItem;
 
-  int i = 1;
+  int i = 0;
   Node<T>* current = head;
   while (current != nullptr) {
       if(index == i) {
@@ -288,7 +291,7 @@ template <class T> void LinkedList<T>::pop(int index) {
     errorMessage << "The index(" << index << ") is smaller than zero";
     throw std::runtime_error(errorMessage.str());
   }
-  else if(index >= length()) {
+  else if(index > length()) {
     std::stringstream errorMessage;
     errorMessage << "The index(" << index << ") is bigger than list length(" << length() << ")";
     throw std::runtime_error(errorMessage.str());
@@ -448,43 +451,49 @@ template <class T> void LinkedList<T>::display_backwards() {
   }
 }
 
-template <class T> void LinkedList<T>::swap(T item1, T item2) {
-  if(!contains(item1)) {
-    std::stringstream errorMessage;
-    errorMessage << "The from item(" << item1 << ") is not found";
-    throw std::runtime_error(errorMessage.str());
-  }
-  else if(!contains(item2)) {
-    std::stringstream errorMessage;
-    errorMessage << "The until item(" << item2 << ") is not found";
-    throw std::runtime_error(errorMessage.str());
-  }
-  else if(!contains(item1) && !contains(item2)) {
-    std::stringstream errorMessage;
-    errorMessage << "The from item(" << item1 << ") and the until item(" << item2 << ") are not found";
-    throw std::runtime_error(errorMessage.str());
+template <class T> void LinkedList<T>::swap(int index1, int index2) {
+  if(index1 == index2) {
+    return;
   }
   else{
-    int item1_index;
-    Node<T>* current = head;
-    while (current != nullptr) {
-      if(current->item == item1) {
-        current->item = item2;
-        item1_index = index(current->item);
-      }
-      current = current->next;
+    if(index1 < 0) {
+      std::stringstream errorMessage;
+      errorMessage << "The first index(" << index1 << ") is smaller than zero";
+      throw std::runtime_error(errorMessage.str());
     }
-
-    int index = 0;
-    current = head;
-    while (current != nullptr) {
-      if(index != item1_index) {
-        if(current->item == item2) {
-          current->item = item1;
-        }
+    else if(index2 < 0) {
+      std::stringstream errorMessage;
+      errorMessage << "The second index(" << index2 << ") is smaller than zero";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else if(index2 > length()) {
+      std::stringstream errorMessage;
+      errorMessage << "The second index(" << index2 << ") is bigger than list length(" << length() << ")";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else if(index1 > length()) {
+      std::stringstream errorMessage;
+      errorMessage << "The first index(" << index1 << ") is bigger than list length(" << length() << ")";
+      throw std::runtime_error(errorMessage.str());
+    }
+    else{
+      T item1 = get(index1)->item;
+      T item2 = get(index2)->item;
+      pop(index1);
+      if(index1 > length()) {
+        push_back(item2);
       }
-      current = current->next;
-      index++;
+      else {
+        insert(item2, index1);
+      }
+
+      pop(index2);
+      if(index2 > length()) {
+        push_back(item1);
+      }
+      else {
+        insert(item1, index2);
+      }
     }
   }
 }
@@ -513,7 +522,11 @@ template <class T> void LinkedList<T>::fill_reverse(int from, int to) {
 }
 
 template <class T> void LinkedList<T>::fill_random(int min, int max, int size) {
-  srand(time(NULL)); 
+
+  if(length() > 0){
+    clear();
+  }
+
   for (int i = 0; i < size; i++) {
     push_back(rand() % (max - min + 1) + min);
   }
@@ -533,6 +546,10 @@ template <class T> void LinkedList<T>::sort_insertion() {
       }
     }
 
+    if(!add){
+      sorted_list.push_back(current_j->item);
+    }
+
     current_j = current_j->next;
   }
 
@@ -544,7 +561,86 @@ template <class T> void LinkedList<T>::sort_insertion() {
 }
 
 template <class T> void LinkedList<T>::sort_merge() {
+  merge_sort(&head);
+}
 
+template <class T> void LinkedList<T>::merge_sort(Node<T>** head_ref) {
+  Node<T>* source = *head_ref;
+  Node<T>* front;
+  Node<T>* back;
+
+  if((source == nullptr) || (source->next == nullptr)){
+    return;
+  }
+
+  front_back_split(source, &front, &back);
+
+  merge_sort(&front);
+  merge_sort(&back);
+
+  *head_ref = sorted_merge(front, back);
+}
+
+template <class T> Node<T>* LinkedList<T>::sorted_merge(Node<T>* front, Node<T>* back){
+  Node<T>* result = nullptr;
+
+  if(front == nullptr){
+    return back;
+  }
+  else if(back == nullptr){
+    return front;
+  }
+
+  if(front->item <= back->item){
+    result = front;
+    result->next = sorted_merge(front->next, back);
+  }
+  else {
+    result = back;
+    result->next = sorted_merge(front, back->next);
+  }
+
+  return result;
+}
+
+template <class T> void LinkedList<T>::front_back_split(Node<T>* source, Node<T>** front, Node<T>** back) {
+  Node<T>* fast;
+  Node<T>* slow;
+  slow = source;
+  fast = source->next;
+
+  while (fast != nullptr){
+    fast = fast->next;
+    if(fast != nullptr){
+      slow = slow->next;
+      fast = fast->next;
+    }
+  }
+
+  *front = source;
+  *back = slow->next;
+  slow->next = nullptr;
+}
+
+template <class T> void LinkedList<T>::sort_selection(){
+  Node<T>* current_i = head;
+  while(current_i != nullptr){
+    Node<T>* min = current_i;
+    Node<T>* current_j = current_i->next;
+
+    while(current_j != nullptr){
+      if(current_j->item < min->item){
+        min = current_j;
+      }
+      current_j = current_j->next;
+    }
+
+    T temp = current_i->item;
+    current_i->item = min->item;
+    min->item = temp;
+
+    current_i = current_i->next;
+  }
 }
 
 template <class T> Iterator<T> LinkedList<T>::begin() {
