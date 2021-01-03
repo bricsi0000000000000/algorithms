@@ -21,6 +21,10 @@ template <class T> LinkedList<T>::~LinkedList() {
 
 template <class T> int LinkedList<T>::length() {
   int length = 0;
+  if(head == nullptr){
+    return length;
+  }
+
   Node<T>* current = head;
   while (current != nullptr) {
     length++;
@@ -92,6 +96,99 @@ template <class T> T LinkedList<T>::operator [](int index) {
   }
 
   return searchItem->item;
+}
+
+template <class T> void LinkedList<T>::operator+=(const T& item){
+  push_back(item);
+}
+
+template <class T> void LinkedList<T>::operator+=(LinkedList<T>& list){
+  push_list_back(list);
+}
+
+template <class T> void LinkedList<T>::operator-=(const T& item){
+  pop_item(item);
+}
+
+template <class T> void LinkedList<T>::operator-=(LinkedList<T>& list){
+  for(auto item : list){
+    try {
+      pop_item(item);
+    }
+    catch(const std::exception& e) {}
+  }
+}
+
+template <class T> void LinkedList<T>::operator--(int){
+  pop_back();
+}
+
+template <class T> void LinkedList<T>::operator--(){
+  pop_front();
+}
+
+template <class T> void LinkedList<T>::operator= (LinkedList<T>& list){
+  clear();
+
+  for(T item : list){
+    push_back(item);
+  }
+}
+
+template <class T> bool LinkedList<T>::operator ==(LinkedList<T>& list){
+  if(length() != list.length()){
+    return false;
+  }
+  else{
+    for (int i = 0; i <= length(); i++) {
+      if(get(i)->item != list[i]){
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
+template <class T> bool LinkedList<T>::operator !=(LinkedList<T>& list){
+  if(length() == list.length()){
+    return true;
+  }
+  else{
+    for (int i = 0; i <= length(); i++) {
+      if(get(i)->item == list[i]){
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
+template <class T> bool LinkedList<T>::operator <(LinkedList<T>& list){
+  return length() < list.length();
+}
+
+template <class T> bool LinkedList<T>::operator >(LinkedList<T>& list){
+  return length() > list.length();
+}
+
+template <class T> bool LinkedList<T>::operator <=(LinkedList<T>& list){
+  return length() <= list.length();
+}
+
+template <class T> bool LinkedList<T>::operator >=(LinkedList<T>& list){
+  return length() >= list.length();
+}
+
+template <class T> LinkedList<T>& LinkedList<T>::operator +(LinkedList<T>& list){
+  Node<T>* current = tail;
+  while (current != nullptr) {
+    list.push_front(current->item);
+    current = current->prev;
+  }
+
+  return list;
 }
 
 template <class T> bool LinkedList<T>::contains(T item) {
@@ -438,17 +535,20 @@ template <class T> void LinkedList<T>::display() {
       current = current->next;
     }
   }
-  std::cout<< std::endl;
+
+  std::cout << '\n';
 }
 
 template <class T> void LinkedList<T>::display_backwards() {
   if(length() > 0) {
     Node<T>* current = tail;
     while (current != nullptr) {
-      std::cout << current->item << "\n";
+      std::cout << current->item << ", ";
       current = current->prev;
     }
   }
+
+  std::cout << '\n';
 }
 
 template <class T> void LinkedList<T>::swap(int index1, int index2) {
@@ -498,6 +598,13 @@ template <class T> void LinkedList<T>::swap(int index1, int index2) {
   }
 }
 
+template <class T> void LinkedList<T>::swap(Node<T> *node1, Node<T> *node2) 
+{ 
+    T temp = node1->item; 
+    node1->item = node2->item; 
+    node2->item = temp; 
+} 
+
 template <class T> void LinkedList<T>::clear(){
   Node<T>* current = head;
   while (current != nullptr) {
@@ -505,18 +612,19 @@ template <class T> void LinkedList<T>::clear(){
     delete current;
     current = nextItem;
   }
+
   head = nullptr;
   tail = nullptr;
 }
 
 template <class T> void LinkedList<T>::fill(int from, int to) {
-  for (int i = from; i < to; i++) {
+  for (int i = from; i <= to; i++) {
     push_back(i);
   }
 }
 
 template <class T> void LinkedList<T>::fill_reverse(int from, int to) {
-  for (int i = from; i < to; i++) {
+  for (int i = from; i <= to; i++) {
     push_front(i);
   }
 }
@@ -641,6 +749,28 @@ template <class T> void LinkedList<T>::sort_selection(){
 
     current_i = current_i->next;
   }
+}
+
+template <class T> void LinkedList<T>::sort_bubble(){
+  if(length() == 0){
+    return;
+  }
+  bool swapped = false;
+  Node<T>* current_j = nullptr;
+
+  do {
+    swapped = false;
+
+    Node<T>* current_i = head;
+    while (current_i->next != current_j){
+      if(current_i->item > current_i->next->item){
+        swap(current_i, current_i->next);
+        swapped = true;
+      }
+      current_i = current_i->next;
+    }
+    current_j = current_i;
+  } while (swapped);
 }
 
 template <class T> Iterator<T> LinkedList<T>::begin() {

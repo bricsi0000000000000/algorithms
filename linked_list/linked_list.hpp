@@ -79,6 +79,78 @@ namespace Ricsi{
     T operator [](int index);
 
     /**
+     * Add an item to the end of the list.
+     * @param item Item to add.
+    */
+    void operator +=(const T& item);
+
+    /**
+     * Adds the parameter list to the end of this list.
+    */
+    void operator +=(LinkedList<T>& list);
+
+    /**
+     * Removes all instances of an item from the list.
+     * @param item Item to remove.
+    */
+    void operator -=(const T& item);
+
+    /**
+     * Removes the parameter lists items from this list.
+    */
+    void operator -=(LinkedList<T>& list);
+
+    /**
+     * Removes the last element from list.
+    */
+    void operator --(int);
+
+    /**
+     * Removes the first element from list.
+    */
+    void operator --();
+
+    /**
+     * Put this list equals to the parameter list.
+    */
+    void operator =(LinkedList<T>& list);
+
+    /**
+     * Check if this lists all item is equals to the parameter list.
+    */
+    bool operator ==(LinkedList<T> &list);
+
+    /**
+     * Check if this lists all item isn't equals to the parameter list.
+    */
+    bool operator !=(LinkedList<T> &list);
+
+    /**
+     * Check if this lists length is smaller than parameter lists length.
+    */
+    bool operator <(LinkedList<T> &list);
+
+    /**
+     * Check if this lists length is bigger than parameter lists length.
+    */
+    bool operator >(LinkedList<T> &list);
+
+    /**
+     * Check if this lists length is smaller or equals to parameter lists length.
+    */
+    bool operator <=(LinkedList<T> &list);
+
+    /**
+     * Check if this lists length is bigger or equals to parameter lists length.
+    */
+    bool operator >=(LinkedList<T> &list);
+
+    /**
+     * Adds parameters lists items to this list.
+    */
+    LinkedList<T>& operator+(LinkedList<T>& list);
+
+    /**
      * @return The length of the list.
     */
     int length();
@@ -159,7 +231,7 @@ namespace Ricsi{
     void pop(int index = 0);
 
     /**
-     * Removes an item from the list
+     * Removes all instance of item from the list.
      * @param item The item that should be removed.
     */
     void pop_item(T item);
@@ -199,6 +271,13 @@ namespace Ricsi{
      * @param index2 items index to swap.
     */
     void swap(int index1, int index2);
+
+    /**
+     * Swap two items.
+     * @param node1 First node to swap.
+     * @param node2 Seconds node to swap.
+    */
+    void swap(Node<T> *node1, Node<T> *node2);
 
     /**
      * Clears the list.
@@ -245,11 +324,31 @@ namespace Ricsi{
     */
     void sort_selection();
 
+    /**
+     * Sorts the list using bubble sort.
+     * @brief Time complexity: `O(n^2)`
+    */
+    void sort_bubble();
+
     Iterator<T> begin();
     Iterator<T> end();
     Iterator<T> rbegin();
     Iterator<T> rend();
+
+    template<class U> friend std::ostream& operator<< (std::ostream& stream, const LinkedList<U>& list);
   };
+
+  template<class T> std::ostream& operator<< (std::ostream& stream, const LinkedList<T>& list){
+    Node<T>* current = list.head;
+    while (current != nullptr) {
+      stream << current->item << ", ";
+      current = current->next;
+    }
+    stream << '\n';
+
+    return stream;
+  }
 }
+
 
 #endif // LINKED_LIST_HPP
