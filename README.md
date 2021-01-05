@@ -1,3 +1,3 @@
-# Algorithms
+# Algorithms and data structures
 
-This repository contains a bunch of algorithms with my own linked list.
+This repository contains data structures I have written.

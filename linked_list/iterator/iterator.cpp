@@ -1,6 +1,3 @@
-#include <iterator> // For std::forward_iterator_tag
-#include <cstddef>  // For std::ptrdiff_t
-
 #include "iterator.hpp"
 
 using namespace Ricsi;
