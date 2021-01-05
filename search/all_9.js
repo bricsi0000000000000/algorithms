@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['size',['size',['../class_ricsi_1_1_array.html#ad865af56857ca6c11afa9813b660d399',1,'Ricsi::Array::size()'],['../class_ricsi_1_1_dynamic_array.html#acbf328f4f472555f7eb726ca9734f495',1,'Ricsi::DynamicArray::size()']]],
   ['sort_5fbubble',['sort_bubble',['../class_ricsi_1_1_linked_list.html#a5e709a45df1202d90cd19e281d0164a5',1,'Ricsi::LinkedList']]],
   ['sort_5finsertion',['sort_insertion',['../class_ricsi_1_1_linked_list.html#aa51967fe8affc3d794711c5eb9587e5a',1,'Ricsi::LinkedList']]],
   ['sort_5fmerge',['sort_merge',['../class_ricsi_1_1_linked_list.html#af4527fa1872c6f1820be4d83b3aeaf82',1,'Ricsi::LinkedList']]],

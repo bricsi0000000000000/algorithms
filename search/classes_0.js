@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iterator',['Iterator',['../struct_ricsi_1_1_iterator.html',1,'Ricsi']]]
+  ['array',['Array',['../class_ricsi_1_1_array.html',1,'Ricsi']]]
 ];

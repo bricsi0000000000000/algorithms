@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['linkedlist',['LinkedList',['../class_ricsi_1_1_linked_list.html',1,'Ricsi']]]
+  ['dynamicarray',['DynamicArray',['../class_ricsi_1_1_dynamic_array.html',1,'Ricsi']]],
+  ['dynamicarrayiterator',['DynamicArrayIterator',['../struct_ricsi_1_1_dynamic_array_iterator.html',1,'Ricsi']]]
 ];
