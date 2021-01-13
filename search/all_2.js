@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['display',['display',['../class_ricsi_1_1_linked_list.html#af02eaa3695918e657f639996eae613c5',1,'Ricsi::LinkedList']]],
-  ['display_5fbackwards',['display_backwards',['../class_ricsi_1_1_linked_list.html#a7ebae9c7bd37f8df7c06739398d32563',1,'Ricsi::LinkedList']]],
-  ['dynamicarray',['DynamicArray',['../class_ricsi_1_1_dynamic_array.html',1,'Ricsi']]],
-  ['dynamicarrayiterator',['DynamicArrayIterator',['../struct_ricsi_1_1_dynamic_array_iterator.html',1,'Ricsi']]]
+  ['clear',['clear',['../class_ricsi_1_1_linked_list.html#a261977565e78dd74f288d47ba5865242',1,'Ricsi::LinkedList']]],
+  ['contains',['contains',['../class_ricsi_1_1_linked_list.html#a961fc1b693f0bb69aba79db034d2ea71',1,'Ricsi::LinkedList']]]
 ];

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['fill',['fill',['../class_ricsi_1_1_linked_list.html#a661a0f30e7dde810043f83697a296aa8',1,'Ricsi::LinkedList']]],
-  ['fill_5frandom',['fill_random',['../class_ricsi_1_1_linked_list.html#a62e1df11b440a8d00c151d29affb3de6',1,'Ricsi::LinkedList']]],
-  ['fill_5freverse',['fill_reverse',['../class_ricsi_1_1_linked_list.html#aaf28c9cce014777bb605f8a933b4ea92',1,'Ricsi::LinkedList']]]
+  ['display',['display',['../class_ricsi_1_1_linked_list.html#af02eaa3695918e657f639996eae613c5',1,'Ricsi::LinkedList']]],
+  ['display_5fbackwards',['display_backwards',['../class_ricsi_1_1_linked_list.html#a7ebae9c7bd37f8df7c06739398d32563',1,'Ricsi::LinkedList']]],
+  ['dynamicarray',['DynamicArray',['../class_ricsi_1_1_dynamic_array.html',1,'Ricsi']]],
+  ['dynamicarrayiterator',['DynamicArrayIterator',['../struct_ricsi_1_1_dynamic_array_iterator.html',1,'Ricsi']]]
 ];

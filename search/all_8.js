@@ -1,14 +1,16 @@
 var searchData=
 [
-  ['pop',['pop',['../class_ricsi_1_1_linked_list.html#aec1de89eff247690da72a5509074162f',1,'Ricsi::LinkedList']]],
-  ['pop_5fback',['pop_back',['../class_ricsi_1_1_linked_list.html#a1127fa27b26330729fcbca56765d2280',1,'Ricsi::LinkedList']]],
-  ['pop_5ffront',['pop_front',['../class_ricsi_1_1_linked_list.html#ab932bba7df9adc8f375855b585063176',1,'Ricsi::LinkedList']]],
-  ['pop_5fitem',['pop_item',['../class_ricsi_1_1_linked_list.html#a621304d77ee1eac3442f92d45abcdcef',1,'Ricsi::LinkedList']]],
-  ['pop_5frange',['pop_range',['../class_ricsi_1_1_linked_list.html#aec56269d0464d7c32340758ec7bc7ed1',1,'Ricsi::LinkedList']]],
-  ['pop_5frange_5fitem',['pop_range_item',['../class_ricsi_1_1_linked_list.html#a998536bb8a0dbf7dce758f606f14996a',1,'Ricsi::LinkedList']]],
-  ['prev',['prev',['../struct_ricsi_1_1_node.html#aeffbf365b8da91872f113807b0ff98a4',1,'Ricsi::Node']]],
-  ['push_5fback',['push_back',['../class_ricsi_1_1_linked_list.html#accd38f84c0b3b59a14fca848d6de4487',1,'Ricsi::LinkedList']]],
-  ['push_5ffront',['push_front',['../class_ricsi_1_1_linked_list.html#aa6240948beda819edd99a055d7742a86',1,'Ricsi::LinkedList']]],
-  ['push_5flist_5fback',['push_list_back',['../class_ricsi_1_1_linked_list.html#a76929783875befbdba8b3ecc53be1471',1,'Ricsi::LinkedList']]],
-  ['push_5flist_5ffront',['push_list_front',['../class_ricsi_1_1_linked_list.html#a3b74de93bb3db6585faf0d472863af1a',1,'Ricsi::LinkedList']]]
+  ['operator_21_3d',['operator!=',['../class_ricsi_1_1_linked_list.html#a71ea4af9d4a4620a41040f931fd1df66',1,'Ricsi::LinkedList']]],
+  ['operator_28_29',['operator()',['../class_ricsi_1_1_linked_list.html#a0ce7d8c48b18ab834d266b06ad60625c',1,'Ricsi::LinkedList']]],
+  ['operator_2b',['operator+',['../class_ricsi_1_1_linked_list.html#adb7fe23b702d52d3e89c276e1f598a72',1,'Ricsi::LinkedList']]],
+  ['operator_2b_3d',['operator+=',['../class_ricsi_1_1_dynamic_array.html#ac1668639c607e5e6f7c36355b4724e00',1,'Ricsi::DynamicArray::operator+=()'],['../class_ricsi_1_1_linked_list.html#a06b7a3fb20d608ba588c0259b2a91ee8',1,'Ricsi::LinkedList::operator+=(const T &amp;item)'],['../class_ricsi_1_1_linked_list.html#a9f2db58d8d3aac79efadeb73e31ab6d6',1,'Ricsi::LinkedList::operator+=(LinkedList&lt; T &gt; &amp;list)']]],
+  ['operator_2d_2d',['operator--',['../class_ricsi_1_1_linked_list.html#aa19fea48d13ccfab9771b9d6a1225feb',1,'Ricsi::LinkedList::operator--(int)'],['../class_ricsi_1_1_linked_list.html#afbb6ca8590ad5760ab436b1c5eab0212',1,'Ricsi::LinkedList::operator--()']]],
+  ['operator_2d_3d',['operator-=',['../class_ricsi_1_1_linked_list.html#a68c0588f585dbded38134c9ba4d79857',1,'Ricsi::LinkedList::operator-=(const T &amp;item)'],['../class_ricsi_1_1_linked_list.html#a8ecb9b589e2e39297134a11caf27fd76',1,'Ricsi::LinkedList::operator-=(LinkedList&lt; T &gt; &amp;list)']]],
+  ['operator_3c',['operator&lt;',['../class_ricsi_1_1_linked_list.html#af56c69a742482d3e60c96ca6e88986ea',1,'Ricsi::LinkedList']]],
+  ['operator_3c_3d',['operator&lt;=',['../class_ricsi_1_1_linked_list.html#acc15f9387d4b29d367a70c3b82c94191',1,'Ricsi::LinkedList']]],
+  ['operator_3d',['operator=',['../class_ricsi_1_1_linked_list.html#a976152011529ae767051013b5b559279',1,'Ricsi::LinkedList']]],
+  ['operator_3d_3d',['operator==',['../class_ricsi_1_1_linked_list.html#a4f23b05c69909d34abb39a5d76f61655',1,'Ricsi::LinkedList']]],
+  ['operator_3e',['operator&gt;',['../class_ricsi_1_1_linked_list.html#a3de0763eb51e5b9a23159d012ff0e723',1,'Ricsi::LinkedList']]],
+  ['operator_3e_3d',['operator&gt;=',['../class_ricsi_1_1_linked_list.html#a438bb9f879a3e2b5e7dba55f19068b17',1,'Ricsi::LinkedList']]],
+  ['operator_5b_5d',['operator[]',['../class_ricsi_1_1_array.html#a340694ce241fc0a87fbb4eabed5bfe78',1,'Ricsi::Array::operator[]()'],['../class_ricsi_1_1_dynamic_array.html#a2b3c2ebb6601ba47b347a066e129ed68',1,'Ricsi::DynamicArray::operator[]()'],['../class_ricsi_1_1_linked_list.html#a0abfeafa483825217df66dbc15bd8a83',1,'Ricsi::LinkedList::operator[]()']]]
 ];
