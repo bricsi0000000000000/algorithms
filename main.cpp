@@ -1,24 +1,27 @@
 #include <iostream>
+#include <vector>
 
-#include "algorithms/sorting_algorithms/insertion_sort.cpp"
-#include "algorithms/searching_algorithms/binary_search.cpp"
+#include "algorithms/randomize_in_place.cpp"
 
 int main(){
-  int length = 5;
-  int* array = new int[length];
-  array[0] = 6;
-  array[1] = 3;
-  array[2] = 5;
-  array[3] = 1;
-  array[4] = 9;
+ 
+  int* array = new int[5];
+  array[0] = 1;
+  array[1] = 2;
+  array[2] = 3;
+  array[3] = 4;
+  array[4] = 5;
 
-  InsertionSort<int> insertion_sort;
-  insertion_sort.Sort(array, length);
+  RandomizeInPlace<int> randomize_in_place;
+  randomize_in_place.Randomize(array, 5);
 
-  BinarySearch<int> binary_search;
-  std::cout << binary_search.Search(array, 5, 0, length) << '\n';
+  for (size_t i = 0; i < 5; i++) {
+    std::cout << array[i] << ", ";
+  }
+
+  std::cout << '\n';
   
   delete[] array;
-
+  
   return 0;
 }
